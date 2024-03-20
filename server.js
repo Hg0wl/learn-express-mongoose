@@ -69,3 +69,13 @@ app.post('/newbook', (req, res) => {
     }
 
 })
+
+app.get('/available', (req, res) => {
+  if (req.BooksStatus == 'Available') {
+    BooksStatus.show_all_books_status(res).filter(b => b.BookStatus == 'Available');
+  }
+})
+
+app.get('/authors', (_, res) => {
+  Authors.get_author_list(res);
+})
